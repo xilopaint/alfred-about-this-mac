@@ -5,10 +5,9 @@ MACHINE=$(defaults read ~/Library/Preferences/com.apple.SystemProfiler.plist | a
 INJECT=$(defaults read ~/Library/Preferences/com.apple.SystemProfiler.plist | awk '/CPU Names/{getline;print}' | awk '{print $1}' | sed -e 's/"//g' -e 's/-.*//')
 HARDWARE_DATA=$(system_profiler SPHardwareDataType)
 IDENTIFIER=$(echo "$HARDWARE_DATA" | grep 'Model Identifier' | awk '{print $NF}')
-HWICONPATH=$(< HardwareIcons.xml grep "$IDENTIFIER" | awk '{print $2}')
-HWICON=$(sips -Z 64 -s format png "$HWICONPATH" --out icons/mymac.png)
-MYMACICON=icons/mymac.png
 
+# Machine icon parsing
+MACHINE_ICON=$(osascript getMacIcon.applescript)
 
 # HARDWARE parsing
 SYSTEM_SERIAL=$(echo "$HARDWARE_DATA" | awk '/Serial Number/ {print $NF}')
@@ -124,7 +123,7 @@ cat << EOB
     "subtitle": "System (Model Identifier)",
     "arg": "$MACHINE",
     "icon": {
-      "path": "$MYMACICON"
+      "path": "$MACHINE_ICON"
     },
     "mods": {
       "alt": {
