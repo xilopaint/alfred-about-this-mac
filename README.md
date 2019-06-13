@@ -14,7 +14,7 @@ Download the workflow file from [GitHub releases][2] and install it by double-cl
 
 ## Credits
 
-This workflow is based on the [About This Mac workflow by Roger W][3] and relies on the `getMacIcon.applescript` by [ChristoferK][4] to generate the user's machine icon.
+This workflow is based on the [About This Mac workflow by Roger W][3] and relies on `getMacIcon.applescript` by [ChristoferK][4] to generate user's machine icon.
 
 ## License
 
