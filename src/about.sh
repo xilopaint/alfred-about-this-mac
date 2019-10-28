@@ -111,6 +111,9 @@ elif [ "$SWVER" == 10.13 ]; then
 
 elif [ "$SWVER" == 10.14 ]; then
     OSICON=icons/Mojave.png
+
+elif [ "$SWVER" == 10.15 ]; then
+    OSICON=icons/Catalina.png
 fi
 
 
