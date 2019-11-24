@@ -129,12 +129,12 @@ cat << EOB
       "path": "$MACHINE_ICON"
     },
     "mods": {
-      "cmd": {
+      "alt": {
         "valid": true,
         "arg": "http://support-sp.apple.com/sp/index?page=cpuspec&cc=$INJECT",
         "subtitle": "Open Apple Specifications Site for This Hardware"
       },
-      "alt": {
+      "ctrl": {
         "valid": true,
         "arg": "http://support-sp.apple.com/sp/index?page=psp&cc=$INJECT",
         "subtitle": "Open Apple Support Site for This Hardware"
@@ -150,12 +150,12 @@ cat << EOB
       "path": "icons/cpu.png"
     },
     "mods": {
-      "cmd": {
+      "alt": {
         "valid": true,
         "arg": "http://support-sp.apple.com/sp/index?page=cpuspec&cc=$INJECT",
         "subtitle": "Open Apple Specifications Site for This Hardware"
       },
-      "alt": {
+      "ctrl": {
         "valid": true,
         "arg": "http://support-sp.apple.com/sp/index?page=psp&cc=$INJECT",
         "subtitle": "Open Apple Support Site for This Hardware"
@@ -171,12 +171,12 @@ cat << EOB
       "path": "icons/ram.png"
     },
     "mods": {
-      "cmd": {
+      "alt": {
         "valid": true,
         "arg": "http://support-sp.apple.com/sp/index?page=cpuspec&cc=$INJECT",
         "subtitle": "Open Apple Specifications Site for This Hardware"
       },
-      "alt": {
+      "ctrl": {
         "valid": true,
         "arg": "http://support-sp.apple.com/sp/index?page=psp&cc=$INJECT",
         "subtitle": "Open Apple Support Site for This Hardware"
@@ -192,12 +192,12 @@ cat << EOB
       "path": "$GRAPHICS1_ICON"
     },
     "mods": {
-      "cmd": {
+      "alt": {
         "valid": true,
         "arg": "http://support-sp.apple.com/sp/index?page=cpuspec&cc=$INJECT",
         "subtitle": "Open Apple Specifications Site for This Hardware"
       },
-      "alt": {
+      "ctrl": {
         "valid": true,
         "arg": "http://support-sp.apple.com/sp/index?page=psp&cc=$INJECT",
         "subtitle": "Open Apple Support Site for This Hardware"
@@ -213,12 +213,12 @@ cat << EOB
       "path": "$GRAPHICS2_ICON"
     },
     "mods": {
-      "cmd": {
+      "alt": {
         "valid": true,
         "arg": "http://support-sp.apple.com/sp/index?page=cpuspec&cc=$INJECT",
         "subtitle": "Open Apple Specifications Site for This Hardware"
       },
-      "alt": {
+      "ctrl": {
         "valid": true,
         "arg": "http://support-sp.apple.com/sp/index?page=psp&cc=$INJECT",
         "subtitle": "Open Apple Support Site for This Hardware"
@@ -234,12 +234,12 @@ cat << EOB
       "path": "icons/AppleCare.png"
     },
     "mods": {
-      "cmd": {
+      "alt": {
         "valid": true,
         "arg": "http://support-sp.apple.com/sp/index?page=cpuspec&cc=$INJECT",
         "subtitle": "Open Apple Specifications Site for This Hardware"
       },
-      "alt": {
+      "ctrl": {
         "valid": true,
         "arg": "http://support-sp.apple.com/sp/index?page=psp&cc=$INJECT",
         "subtitle": "Open Apple Support Site for This Hardware"
@@ -255,12 +255,12 @@ cat << EOB
       "path": "$OSICON"
     },
     "mods": {
-      "cmd": {
+      "alt": {
         "valid": true,
         "arg": "http://support-sp.apple.com/sp/index?page=cpuspec&cc=$INJECT",
         "subtitle": "Open Apple Specifications Site for This Hardware"
       },
-      "alt": {
+      "ctrl": {
         "valid": true,
         "arg": "http://support-sp.apple.com/sp/index?page=psp&cc=$INJECT",
         "subtitle": "Open Apple Support Site for This Hardware"
@@ -276,12 +276,12 @@ cat << EOB
       "path": "icons/uptime.png"
     },
     "mods": {
-      "cmd": {
+      "alt": {
         "valid": true,
         "arg": "http://support-sp.apple.com/sp/index?page=cpuspec&cc=$INJECT",
         "subtitle": "Open Apple Specifications Site for This Hardware"
       },
-      "alt": {
+      "ctrl": {
         "valid": true,
         "arg": "http://support-sp.apple.com/sp/index?page=psp&cc=$INJECT",
         "subtitle": "Open Apple Support Site for This Hardware"

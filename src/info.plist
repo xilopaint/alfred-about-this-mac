@@ -14,9 +14,9 @@
 				<key>destinationuid</key>
 				<string>E53BAD10-A00F-47F7-BD57-9A15C2D81EC8</string>
 				<key>modifiers</key>
-				<integer>0</integer>
+				<integer>1048576</integer>
 				<key>modifiersubtext</key>
-				<string></string>
+				<string>Copy to Clipboard</string>
 				<key>vitoclose</key>
 				<false/>
 			</dict>
@@ -24,7 +24,7 @@
 				<key>destinationuid</key>
 				<string>2D7A5045-4AF7-4A5B-B483-1A844CAC5FF9</string>
 				<key>modifiers</key>
-				<integer>1048576</integer>
+				<integer>524288</integer>
 				<key>modifiersubtext</key>
 				<string></string>
 				<key>vitoclose</key>
@@ -34,7 +34,7 @@
 				<key>destinationuid</key>
 				<string>EF736964-95CB-49D0-B70B-0045FB836334</string>
 				<key>modifiers</key>
-				<integer>524288</integer>
+				<integer>262144</integer>
 				<key>modifiersubtext</key>
 				<string></string>
 				<key>vitoclose</key>
@@ -297,7 +297,7 @@ fi</string>
 			<key>xpos</key>
 			<integer>370</integer>
 			<key>ypos</key>
-			<integer>220</integer>
+			<integer>245</integer>
 		</dict>
 		<key>6B4FCA86-F27F-4C60-B412-15CCD2686C5F</key>
 		<dict>
@@ -306,7 +306,7 @@ fi</string>
 			<key>note</key>
 			<string>OneUpdater</string>
 			<key>xpos</key>
-			<integer>255</integer>
+			<integer>310</integer>
 			<key>ypos</key>
 			<integer>450</integer>
 		</dict>
@@ -315,7 +315,7 @@ fi</string>
 			<key>xpos</key>
 			<integer>485</integer>
 			<key>ypos</key>
-			<integer>310</integer>
+			<integer>250</integer>
 		</dict>
 		<key>E53BAD10-A00F-47F7-BD57-9A15C2D81EC8</key>
 		<dict>
@@ -335,7 +335,7 @@ fi</string>
 	<key>variablesdontexport</key>
 	<array/>
 	<key>version</key>
-	<string>1.1.1</string>
+	<string>1.1.2</string>
 	<key>webaddress</key>
 	<string>https://github.com/xilopaint/alfred-about-this-mac</string>
 </dict>
