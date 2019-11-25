@@ -12,9 +12,29 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>748C2909-716A-4356-8820-DB25A8002F17</string>
+				<string>E53BAD10-A00F-47F7-BD57-9A15C2D81EC8</string>
 				<key>modifiers</key>
-				<integer>0</integer>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>Copy to Clipboard</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>2D7A5045-4AF7-4A5B-B483-1A844CAC5FF9</string>
+				<key>modifiers</key>
+				<integer>524288</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>EF736964-95CB-49D0-B70B-0045FB836334</string>
+				<key>modifiers</key>
+				<integer>262144</integer>
 				<key>modifiersubtext</key>
 				<string></string>
 				<key>vitoclose</key>
@@ -30,13 +50,29 @@
 				<key>vitoclose</key>
 				<false/>
 			</dict>
+		</array>
+		<key>2D7A5045-4AF7-4A5B-B483-1A844CAC5FF9</key>
+		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>E53BAD10-A00F-47F7-BD57-9A15C2D81EC8</string>
+				<string>748C2909-716A-4356-8820-DB25A8002F17</string>
 				<key>modifiers</key>
-				<integer>1048576</integer>
+				<integer>0</integer>
 				<key>modifiersubtext</key>
-				<string>Copy to Clipboard</string>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>EF736964-95CB-49D0-B70B-0045FB836334</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>748C2909-716A-4356-8820-DB25A8002F17</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
 				<key>vitoclose</key>
 				<false/>
 			</dict>
@@ -55,21 +91,19 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>browser</key>
-				<string></string>
-				<key>spaces</key>
-				<string></string>
-				<key>url</key>
-				<string></string>
-				<key>utf8</key>
-				<true/>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>transient</key>
+				<false/>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.action.openurl</string>
+			<string>alfred.workflow.output.clipboard</string>
 			<key>uid</key>
-			<string>748C2909-716A-4356-8820-DB25A8002F17</string>
+			<string>E53BAD10-A00F-47F7-BD57-9A15C2D81EC8</string>
 			<key>version</key>
-			<integer>1</integer>
+			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -119,6 +153,41 @@
 			<string>0D105A45-360A-4581-A8D6-A85316050009</string>
 			<key>version</key>
 			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.junction</string>
+			<key>uid</key>
+			<string>2D7A5045-4AF7-4A5B-B483-1A844CAC5FF9</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string></string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>748C2909-716A-4356-8820-DB25A8002F17</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.junction</string>
+			<key>uid</key>
+			<string>EF736964-95CB-49D0-B70B-0045FB836334</string>
+			<key>version</key>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -211,23 +280,6 @@ fi</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>autopaste</key>
-				<false/>
-				<key>clipboardtext</key>
-				<string>{query}</string>
-				<key>transient</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.clipboard</string>
-			<key>uid</key>
-			<string>E53BAD10-A00F-47F7-BD57-9A15C2D81EC8</string>
-			<key>version</key>
-			<integer>3</integer>
-		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
@@ -240,6 +292,13 @@ fi</string>
 			<key>ypos</key>
 			<integer>185</integer>
 		</dict>
+		<key>2D7A5045-4AF7-4A5B-B483-1A844CAC5FF9</key>
+		<dict>
+			<key>xpos</key>
+			<integer>370</integer>
+			<key>ypos</key>
+			<integer>245</integer>
+		</dict>
 		<key>6B4FCA86-F27F-4C60-B412-15CCD2686C5F</key>
 		<dict>
 			<key>colorindex</key>
@@ -247,29 +306,36 @@ fi</string>
 			<key>note</key>
 			<string>OneUpdater</string>
 			<key>xpos</key>
-			<integer>480</integer>
+			<integer>310</integer>
 			<key>ypos</key>
-			<integer>185</integer>
+			<integer>450</integer>
 		</dict>
 		<key>748C2909-716A-4356-8820-DB25A8002F17</key>
 		<dict>
 			<key>xpos</key>
-			<integer>310</integer>
+			<integer>485</integer>
 			<key>ypos</key>
-			<integer>30</integer>
+			<integer>250</integer>
 		</dict>
 		<key>E53BAD10-A00F-47F7-BD57-9A15C2D81EC8</key>
 		<dict>
 			<key>xpos</key>
-			<integer>310</integer>
+			<integer>485</integer>
 			<key>ypos</key>
-			<integer>345</integer>
+			<integer>40</integer>
+		</dict>
+		<key>EF736964-95CB-49D0-B70B-0045FB836334</key>
+		<dict>
+			<key>xpos</key>
+			<integer>370</integer>
+			<key>ypos</key>
+			<integer>325</integer>
 		</dict>
 	</dict>
 	<key>variablesdontexport</key>
 	<array/>
 	<key>version</key>
-	<string>1.1</string>
+	<string>1.1.2</string>
 	<key>webaddress</key>
 	<string>https://github.com/xilopaint/alfred-about-this-mac</string>
 </dict>
