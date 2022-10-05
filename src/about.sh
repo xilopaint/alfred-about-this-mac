@@ -11,8 +11,13 @@ MACHINE_ICON=$(osascript getMacIcon.applescript)
 
 # HARDWARE parsing
 SYSTEM_SERIAL=$(echo "$HARDWARE_DATA" | awk '/Serial Number/ {print $NF}')
-PROC_SPEED=$(echo "$HARDWARE_DATA" | awk '/Processor Speed/ {print substr($0, index($0,$3))}')
-PROC_NAME=$(echo "$HARDWARE_DATA" | awk '/Processor Name/ {print substr($0, index($0,$3))}')
+if echo "$HARDWARE_DATA" | grep -q 'Processor'; then
+  PROC_SPEED=$(echo "$HARDWARE_DATA" | awk '/Processor Speed/ {print substr($0, index($0,$3))}')
+  PROC_NAME=$(echo "$HARDWARE_DATA" | awk '/Processor Name/ {print substr($0, index($0,$3))}')
+  PROC="$PROC_SPEED $PROC_NAME"
+else
+  PROC=$(echo "$HARDWARE_DATA" | awk '/Chip/ {print substr($0, index($0,$2))}')
+fi
 
 
 # MEMORY parsing
@@ -25,7 +30,7 @@ MEM_TYPE=$(echo "$MEMORY_DATA" | awk '/Type/ {print substr($0, index($0,$2))}' |
 # GRAPHICS parsing
 GRAPHICS_DATA=$(system_profiler SPDisplaysDataType)
 
-NUMGFX=$(echo "$GRAPHICS_DATA" | grep 'Bus' | awk '{print NR}' | tail -1)
+NUMGFX=$(echo "$GRAPHICS_DATA" | grep 'Bus' | awk '{print NR}')
 
 if [ "$NUMGFX" == 1 ]; then
     GFXSUB1=$(echo "$GRAPHICS_DATA" | grep 'Resolution:' | awk 'NR==1 {print $1,$2,$3,$4}')
@@ -95,25 +100,32 @@ UPTIME="$(format $DAYS "day") $(format $HOURS "hour") $(format $MINUTES "minute"
 
 
 # macOS version parsing
-SWVER=$(sw_vers -productVersion | awk '{print substr($1,1,5)}')
+if $(sw_vers -productVersion | awk '{print substr($1,1,2)}') == 10; then
+    SWVER=$(sw_vers -productVersion | awk '{print substr($1,1,5)}')
+else
+    SWVER=$(sw_vers -productVersion | awk '{print substr($1,1,2)}')
+fi
 
 if [ "$SWVER" == 10.10 ]; then
-    OSICON=icons/Yosemite.png
+    OSICON=icons/10.10.png
 
 elif [ "$SWVER" == 10.11 ]; then
-    OSICON=icons/ElCapitan.png
+    OSICON=icons/10.11.png
 
 elif [ "$SWVER" == 10.12 ]; then
-    OSICON=icons/Sierra.png
+    OSICON=icons/10.12.png
 
 elif [ "$SWVER" == 10.13 ]; then
-    OSICON=icons/HighSierra.png
+    OSICON=icons/10.13.png
 
 elif [ "$SWVER" == 10.14 ]; then
-    OSICON=icons/Mojave.png
+    OSICON=icons/10.14.png
 
 elif [ "$SWVER" == 10.15 ]; then
-    OSICON=icons/Catalina.png
+    OSICON=icons/10.15.png
+
+elif [ "$SWVER" == 11 ]; then
+    OSICON=icons/11.png
 fi
 
 
@@ -143,9 +155,9 @@ cat << EOB
   },
 
   {
-    "title": "$PROC_SPEED $PROC_NAME",
+    "title": "$PROC",
     "subtitle": "Processor",
-    "arg": "$PROC_SPEED $PROC_NAME",
+    "arg": "$PROC",
     "icon": {
       "path": "icons/cpu.png"
     },
@@ -231,7 +243,7 @@ cat << EOB
     "subtitle": "Serial",
     "arg": "$SYSTEM_SERIAL",
     "icon": {
-      "path": "icons/AppleCare.png"
+      "path": "icons/applecare.png"
     },
     "mods": {
       "alt": {
