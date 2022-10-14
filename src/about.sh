@@ -1,18 +1,24 @@
 #!/bin/bash
 
 # Get Data
-MACHINE=$(defaults read ~/Library/Preferences/com.apple.SystemProfiler.plist | awk '/CPU Names/{getline;print}' | awk '{$1=$2=""; print $0}' | sed -e 's/"//g' -e 's/);//g' -e 's/(//g' | sed 's/^ *//')
-INJECT=$(defaults read ~/Library/Preferences/com.apple.SystemProfiler.plist | awk '/CPU Names/{getline;print}' | awk '{print $1}' | sed -e 's/"//g' -e 's/-.*//')
 HARDWARE_DATA=$(system_profiler SPHardwareDataType)
-IDENTIFIER=$(echo "$HARDWARE_DATA" | grep 'Model Identifier' | awk '{print $NF}')
-
+MACHINE=$(echo "$HARDWARE_DATA" | awk -F ": " '/Model Name/ {print $NF}')
+IDENTIFIER=$(echo "$HARDWARE_DATA"  | awk -F ": " '/Model Identifier/ {print $NF}')
+INJECT=$(echo "$HARDWARE_DATA" | awk '/CPU Names/{getline;print}' | awk '{print $1}' | sed -e 's/"//g' -e 's/-.*//')
 # Machine icon parsing
 MACHINE_ICON=$(osascript getMacIcon.applescript)
 
 # HARDWARE parsing
 SYSTEM_SERIAL=$(echo "$HARDWARE_DATA" | awk '/Serial Number/ {print $NF}')
-PROC_SPEED=$(echo "$HARDWARE_DATA" | awk '/Processor Speed/ {print substr($0, index($0,$3))}')
-PROC_NAME=$(echo "$HARDWARE_DATA" | awk '/Processor Name/ {print substr($0, index($0,$3))}')
+if echo "$HARDWARE_DATA" | grep -q 'Processor'; then
+  PROC_SPEED=$(echo "$HARDWARE_DATA" | awk '/Processor Speed/ {print substr($0, index($0,$3))}')
+  PROC_NAME=$(echo "$HARDWARE_DATA" | awk '/Processor Name/ {print substr($0, index($0,$3))}')
+  PROC="$PROC_SPEED $PROC_NAME"
+  CPU_ICON="icons/cpu-intel.png"
+else
+  PROC=$(echo "$HARDWARE_DATA" | awk '/Chip/ {print substr($0, index($0,$2))}')
+  CPU_ICON="icons/cpu-arm.png"
+fi
 
 
 # MEMORY parsing
@@ -25,7 +31,7 @@ MEM_TYPE=$(echo "$MEMORY_DATA" | awk '/Type/ {print substr($0, index($0,$2))}' |
 # GRAPHICS parsing
 GRAPHICS_DATA=$(system_profiler SPDisplaysDataType)
 
-NUMGFX=$(echo "$GRAPHICS_DATA" | grep 'Bus' | awk '{print NR}' | tail -1)
+NUMGFX=$(echo "$GRAPHICS_DATA" | grep 'Bus' | awk '{print NR}')
 
 if [ "$NUMGFX" == 1 ]; then
     GFXSUB1=$(echo "$GRAPHICS_DATA" | grep 'Resolution:' | awk 'NR==1 {print $1,$2,$3,$4}')
@@ -41,7 +47,10 @@ GRAPHICS2_CHIPSET=$(echo "$GRAPHICS_DATA" | grep 'Chipset Model' | awk 'NR==2 {p
 GRAPHICS2_VRAM=$(echo "$GRAPHICS_DATA" | grep 'VRAM' | awk 'NR==2 {print " " substr($0, index($0,$4))}')
 
 GFXVENDOR1=$(echo "$GRAPHICS_DATA" | grep 'Vendor' | awk 'NR==1 {print $2}')
-if [ "$GFXVENDOR1" == ATI ]; then
+if [ "$GFXVENDOR1" == Apple ]; then
+    GRAPHICS1_ICON=icons/cpu-arm.png
+
+elif [ "$GFXVENDOR1" == ATI ]; then
     GRAPHICS1_ICON=icons/graphicsati.png
 
 elif [ "$GFXVENDOR1" == Intel ]; then
@@ -95,25 +104,23 @@ UPTIME="$(format $DAYS "day") $(format $HOURS "hour") $(format $MINUTES "minute"
 
 
 # macOS version parsing
-SWVER=$(sw_vers -productVersion | awk '{print substr($1,1,5)}')
+if [ "$(sw_vers -productVersion | awk '{print substr($1,1,2)}')" == 10 ]; then
+    SWVER=$(sw_vers -productVersion | awk '{print substr($1,1,5)}')
+else
+    SWVER=$(sw_vers -productVersion | awk '{print substr($1,1,2)}')
+fi
 
-if [ "$SWVER" == 10.10 ]; then
-    OSICON=icons/Yosemite.png
-
-elif [ "$SWVER" == 10.11 ]; then
-    OSICON=icons/ElCapitan.png
-
-elif [ "$SWVER" == 10.12 ]; then
-    OSICON=icons/Sierra.png
-
-elif [ "$SWVER" == 10.13 ]; then
-    OSICON=icons/HighSierra.png
-
-elif [ "$SWVER" == 10.14 ]; then
-    OSICON=icons/Mojave.png
+if [ "$SWVER" == 10.14 ]; then
+    OSICON=icons/10.14.png
 
 elif [ "$SWVER" == 10.15 ]; then
-    OSICON=icons/Catalina.png
+    OSICON=icons/10.15.png
+
+elif [ "$SWVER" == 11 ]; then
+    OSICON=icons/11.png
+
+elif [ "$SWVER" == 12 ]; then
+    OSICON=icons/12.png
 fi
 
 
@@ -123,7 +130,7 @@ cat << EOB
 
   {
     "title": "$MACHINE ($IDENTIFIER)",
-    "subtitle": "System (Model Identifier)",
+    "subtitle": "Machine (Model Identifier)",
     "arg": "$MACHINE",
     "icon": {
       "path": "$MACHINE_ICON"
@@ -143,11 +150,11 @@ cat << EOB
   },
 
   {
-    "title": "$PROC_SPEED $PROC_NAME",
+    "title": "$PROC",
     "subtitle": "Processor",
-    "arg": "$PROC_SPEED $PROC_NAME",
+    "arg": "$PROC",
     "icon": {
-      "path": "icons/cpu.png"
+      "path": "$CPU_ICON"
     },
     "mods": {
       "alt": {
@@ -231,7 +238,7 @@ cat << EOB
     "subtitle": "Serial",
     "arg": "$SYSTEM_SERIAL",
     "icon": {
-      "path": "icons/AppleCare.png"
+      "path": "icons/applecare.png"
     },
     "mods": {
       "alt": {
