@@ -1,4 +1,9 @@
+# Local History
+.history
 
-.DS_Store
+# Visual Studio Code
+.vscode
 *.code-workspace
-src/icons/machine.png
+
+# Desktop Services Store
+.DS_Store
