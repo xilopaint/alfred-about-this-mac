@@ -121,8 +121,10 @@ elif [ "$SWVER" == 11 ]; then
 
 elif [ "$SWVER" == 12 ]; then
     OSICON=icons/12.png
-fi
 
+elif [ "$SWVER" == 13 ]; then
+    OSICON=icons/13.png
+fi
 
 # Alfred Feedback
 cat << EOB
