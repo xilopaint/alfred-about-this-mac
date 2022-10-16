@@ -6,7 +6,12 @@ MACHINE=$(echo "$HARDWARE_DATA" | awk -F ": " '/Model Name/ {print $NF}')
 IDENTIFIER=$(echo "$HARDWARE_DATA"  | awk -F ": " '/Model Identifier/ {print $NF}')
 INJECT=$(echo "$HARDWARE_DATA" | awk '/CPU Names/{getline;print}' | awk '{print $1}' | sed -e 's/"//g' -e 's/-.*//')
 # Machine icon parsing
-MACHINE_ICON=$(osascript getMacIcon.applescript)
+MACHINE_ICON="$alfred_workflow_cache/machine.png"
+
+if [[ ! -f "$MACHINE_ICON" ]]; then
+  mkdir -p "$(dirname "$MACHINE_ICON")"
+  osascript getMacIcon.applescript "$MACHINE_ICON"
+fi
 
 # HARDWARE parsing
 SYSTEM_SERIAL=$(echo "$HARDWARE_DATA" | awk '/Serial Number/ {print $NF}')
