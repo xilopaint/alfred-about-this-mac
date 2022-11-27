@@ -164,7 +164,7 @@
 		</dict>
 	</array>
 	<key>readme</key>
-	<string></string>
+	<string>Call `amm` to get **About This Mac** information.</string>
 	<key>uidata</key>
 	<dict>
 		<key>0D105A45-360A-4581-A8D6-A85316050009</key>
