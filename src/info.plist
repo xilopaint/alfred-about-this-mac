@@ -199,7 +199,7 @@
 	<key>userconfigurationconfig</key>
 	<array/>
 	<key>version</key>
-	<string>1.4</string>
+	<string>1.4.1</string>
 	<key>webaddress</key>
 	<string>https://github.com/xilopaint/alfred-about-this-mac</string>
 </dict>
