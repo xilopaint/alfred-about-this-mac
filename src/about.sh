@@ -123,6 +123,9 @@ elif [ "$SWVER" == 12 ]; then
 
 elif [ "$SWVER" == 13 ]; then
     OSICON=icons/13.png
+
+elif [ "$SWVER" == 14 ]; then
+    OSICON=icons/14.png
 fi
 
 # Alfred Feedback
