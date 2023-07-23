@@ -55,9 +55,6 @@ GFXVENDOR1=$(echo "$GRAPHICS_DATA" | grep 'Vendor' | awk 'NR==1 {print $2}')
 if [ "$GFXVENDOR1" == Apple ]; then
     GRAPHICS1_ICON=icons/cpu-arm.png
 
-elif [ "$GFXVENDOR1" == ATI ]; then
-    GRAPHICS1_ICON=icons/graphicsati.png
-
 elif [ "$GFXVENDOR1" == Intel ]; then
     GRAPHICS1_ICON=icons/graphicsintelhd.png
 
@@ -66,10 +63,7 @@ elif [ "$GFXVENDOR1" == NVIDIA ]; then
 fi
 
 GFXVENDOR2=$(echo "$GRAPHICS_DATA" | grep 'Vendor' | awk 'NR==2 {print $2}')
-if [ "$GFXVENDOR2" == ATI ]; then
-    GRAPHICS2_ICON=icons/graphicsati.png
-
-elif [ "$GFXVENDOR2" == Intel ]; then
+if [ "$GFXVENDOR2" == Intel ]; then
     GRAPHICS2_ICON=icons/graphicsintelhd.png
 
 elif [ "$GFXVENDOR2" == NVIDIA ]; then
