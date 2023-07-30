@@ -166,7 +166,7 @@
 	<key>readme</key>
 	<string>## Usage
 
-Show information about your Mac via the `amm` keyword. &lt;kbd&gt;↩&lt;/kbd&gt; copies details to the clipboard.</string>
+Show information about your Mac via the `amm` keyword. &lt;kbd&gt;⌘↩&lt;/kbd&gt; copies details to the clipboard.</string>
 	<key>uidata</key>
 	<dict>
 		<key>0D105A45-360A-4581-A8D6-A85316050009</key>
