@@ -223,7 +223,7 @@ Show information about your Mac via the `amm` keyword. &lt;kbd&gt;↩&lt;/kbd&gt
 		</dict>
 	</array>
 	<key>version</key>
-	<string>1.4.1</string>
+	<string>1.5</string>
 	<key>webaddress</key>
 	<string>https://github.com/xilopaint/alfred-about-this-mac</string>
 </dict>
